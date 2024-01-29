@@ -1,0 +1,202 @@
+import { Meta } from "@storybook/blocks";
+
+
+<Meta title="Knowledge/Alpha" />
+
+
+Overview of WebPOV
+- WebPOV is an innovative web-based 3D game framework designed for optimized learning and trading experiences.
+- It leverages immersive browser interfaces and gamified elements to enhance user engagement and interactivity.
+- The framework aims to simplify complex learning and trading processes through its interactive and intuitive design.
+
+- Main Tech-Stack used is Next.js 13 for robust front-end development and integrating 3D web technologies using Three.js and React Three Fiber. 
+
+
+
+
+Detailed Module Descriptions
+
+WebPOV (Core)
+- Serves as the overarching framework for the entire WebPOV project.
+- The starting documentation for users, with a focus on registration and tutorials.
+
+Webpov (Main)
+- Acts as the gateway and main app to other modules in the WebPOV framework.
+- Provides redirections to Webpack, Webtrade, Webqub, and Webfun.
+- Facilitates user navigation and exploration of specific functionalities within the framework.
+
+Webpack (A)
+- A digital portfolio blogging and learning platform within the WebPOV framework.
+- Contains educational books and materials for users.
+- Directly links to Webtrade and offers a portfolio for trading insights and activities.
+
+Webtrade (B)
+- Functions as a comprehensive trading dashboard.
+- Presents various trade links and tools for users to engage in trading activities.
+- Offers a pathway to Webqub for an immersive indepth trading experience combining elements of gaming.
+
+Webqub (C)
+- An immersive trading platform integrated with gaming elements.
+- Combines the functionalities of trading with interactive gaming experiences.
+- Enhances the trading process with engaging and gamified elements.
+- The Qub (Quant Box) is a powerful tool designed to enhance traders’ capabilities. It includes many features inside a 3D trading box, including multi-timeframe joint-asset tracking, copy-trading capabilities, order-hooked transactions and more. This tool empowers traders with advanced features to analyze data effectively, boosting their trading acumen.
+
+Webfun (D)
+- Repository for 3D web games and components within the WebPOV framework.
+- Houses a variety of modular games and components for both enjoyment and developmental purposes.
+- Supports and enriches the gaming experiences in Webqub with a diverse range of games and tools.
+- Inspired in the atomic design component design framework
+
+User Flow
+- Users start at WebPOV (Main) for registration or login.
+- From WebPOV (Main), they navigate to Webpack (A), Webtrade (B), Webqub (C), and Webfun (D) based on their interests.
+- Seamless transitions between modules ensure a cohesive user experience.
+
+Mermaid.js Diagram Script
+graph TD
+    Core[WebPOV] -->|Registration/Login| Main[Webpov]
+    Main -->|Redirects to| A[Webpack]
+    Main -->|Redirects to| B[Webtrade]
+    Main -->|Redirects to| C[Webqub]
+    Main -->|Redirects to| D[Webfun]
+    
+    A -->|Links to| B
+    B -->|Links to| C
+    D -->|Game Library| G[Components & Modular Games]
+    C -->|Immersive Trading & Games| G
+
+    style Core fill:#f9f,stroke:#333,stroke-width:2px
+    style Main fill:#fcf,stroke:#333,stroke-width:2px
+    style A fill:#ccf,stroke:#333,stroke-width:2px
+    style B fill:#ffc,stroke:#333,stroke-width:2px
+    style C fill:#cff,stroke:#333,stroke-width:2px
+    style D fill:#fcc,stroke:#333,stroke-width:2px
+    style G fill:#fff,stroke:#333,stroke-width:1px
+
+
+
+## Key Features
+
+### 1. **AI Integration**
+   - AI-driven functionalities for enhanced user experience.
+   - [AI Route](https://github.com/webpov/mobile-trader/blob/main/src/app/api/ai/route.ts): Handles AI-related requests.
+   - [More about AI Integration](https://github.com/webpov/mobile-trader/blob/main/docs/AI_Integration.md)
+
+### 2. **Authentication**
+   - Secure authentication mechanism.
+   - [Auth Route](https://github.com/webpov/mobile-trader/blob/main/src/app/api/auth/route.ts): Manages authentication processes.
+   - [More about Authentication](https://github.com/webpov/mobile-trader/blob/main/docs/Authentication.md)
+
+### 3. **Market Data**
+   - Real-time market data display.
+   - [Market Route](https://github.com/webpov/mobile-trader/blob/main/src/app/api/market/route.ts): Fetches and displays market data.
+   - [More about Market Data](https://github.com/webpov/mobile-trader/blob/main/docs/Market_Data.md)
+
+### 4. **Order Management**
+   - Comprehensive order logging and management.
+   - [Order Logs Route](https://github.com/webpov/mobile-trader/blob/main/src/app/api/order/logs/route.ts): Handles order-related data and logs.
+   - [More about Order Management](https://github.com/webpov/mobile-trader/blob/main/docs/Order_Management.md)
+
+### 5. **3D Models and Graphics**
+   - Interactive 3D models for an immersive trading experience.
+   - [Model Game Stage](https://github.com/webpov/mobile-trader/blob/main/src/model/level/ModelGameStage.tsx): Integrates 3D models into the platform.
+   - [More about 3D Models and Graphics](https://github.com/webpov/mobile-trader/blob/main/docs/3D_Models_and_Graphics.md)
+
+### 6. **Customizable UI Components**
+   - Various UI components for a customizable user interface.
+   - [Dashboard Components](https://github.com/webpov/mobile-trader/blob/main/src/dom/organism/Dashboard): Includes elements like Buy/Sell buttons, Chart Window, etc.
+   - [More about UI Components](https://github.com/webpov/mobile-trader/blob/main/docs/UI_Components.md)
+
+
+
+## Technical Stack
+
+- **Frontend**: React, Next.js, Three.js
+- **Backend**: Node.js, Next.js API routes, Supabase
+- **3D Graphics**: Three.js, @react-three/fiber, @react-three/drei
+- **Styling**: CSSCSS (custom framework)
+
+
+
+
+#Standard Source Folder and Files Structure
+webapp/
+├── public/
+│   │   ├── font/
+│   │   ├── img/
+│   │   ├── sound/
+│   │   ├── script/
+│   │   └──logo.png
+├── script/
+│   ├── constant/
+│   │   ├── json/
+│   │   └── api.ts
+│   ├── state/
+│   │   ├── context/ 
+│   │   └── service/
+│   ├── util/
+│   │   ├── helper/
+│   │   └── hook/
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   ├── web/
+│   │   ├── globals.css
+│   │   ├── page.tsx
+│   │   ├── layout.ts
+│   │   └── middleware.ts
+│   ├── dom/
+│   │   ├── atom/ 
+│   │   ├── cell/
+│   │   ├── organ/
+│   │   └── template/
+│   └── model/
+│   │   ├── core/
+│   │   ├── npc/
+│   │   ├── part/
+│   │   ├── tools/
+│   │   └── level/
+├── style/
+│   ├── module/
+│   ├── css.css
+│   └── ...
+├── .gitignore
+├── .env.local
+└── package.json
+
+# DOM: Document Object Models
+### dom atom
+DOM Atoms are generally the bare minimum component from which other components are built
+subfolders:
+  * common: placeholder, error
+  * input: text, option
+  * overlay: alert, modal, popup
+
+### dom cell
+DOM Cells are UI items ready to be used in layouts and most likely hold a complex state and nested component structure
+subfolders:
+  * display: slider
+  * system: table, pagination
+
+### dom organ
+DOM Organs are meant to be used along other components as main sections of a page
+subfolders:
+  * layout: sidebar
+
+MODEL Core are 3d entities needed in all 3d layouts and most likely hold a base funcionalities like cameras and text or primitve objects
+### Model Directory Structure
+
+#### `model/core/`
+This folder contains essential 3D entities required in all 3D layouts. It includes foundational functionalities such as camera systems, text, and primitive objects, forming the backbone for basic 3D components in any 3D scene or application.
+
+#### `model/npc/`
+The 'npc' (non-player character) folder houses 3D models and functionalities related to characters in the application that are not controlled by the user. It encompasses AI-driven characters, bystanders, or any autonomous entities within the 3D environment.
+
+#### `model/part/`
+This directory holds specific parts or components of 3D models. These parts are used to assemble more complex 3D models or to provide modular components for customization and interchangeability within the 3D environment. these components are essential but not required for the most basic of scenes.
+
+#### `model/tools/`
+The 'tools' folder contains utilities and scripts that assist in the creation, manipulation, or interaction with 3D models. It includes tools for modeling, rigging, animating, and scripting functionalities in the 3D space. These are usable by characters, scenes, players or the user.
+
+#### `model/level/`
+This section is dedicated to the creation and organization of different levels or environments within the 3D web app. It features various base scenes, level settings, or worlds that are integral to the flow of the 3D application or game.

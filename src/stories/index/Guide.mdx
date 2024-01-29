@@ -1,0 +1,135 @@
+import { Meta } from "@storybook/blocks";
+import Image from "next/image";
+
+import WebPOV from "../assets/webpov.jpg";
+import Github from "../assets/github.svg";
+import Discord from "../assets/discord.svg";
+import Youtube from "../assets/youtube.svg";
+import Tutorials from "../assets/tutorials.svg";
+import Styling from "../assets/styling.png";
+import Context from "../assets/context.png";
+import Assets from "../assets/assets.png";
+import Docs from "../assets/docs.png";
+import Share from "../assets/share.png";
+import FigmaPlugin from "../assets/figma-plugin.png";
+import Testing from "../assets/testing.png";
+import Accessibility from "../assets/accessibility.png";
+import Theming from "../assets/theming.png";
+import AddonLibrary from "../assets/addon-library.png";
+
+
+export const RightArrow = () => (
+  <svg
+    viewBox="0 0 14 14"
+    width="8px"
+    height="14px"
+    style={{
+      marginLeft: '4px',
+      display: 'inline-block',
+      shapeRendering: 'inherit',
+      verticalAlign: 'middle',
+      fill: 'currentColor',
+      'path fill': 'currentColor'
+    }}
+  >
+    <path d="m11.1 7.35-5.5 5.5a.5.5 0 0 1-.7-.7L10.04 7 4.9 1.85a.5.5 0 1 1 .7-.7l5.5 5.5c.2.2.2.5 0 .7Z" />
+  </svg>
+);
+
+
+<Meta title="Index/Full Guide" />
+create base project
+ npx create-next-app@13.5 webgame0 --ts --app --src-dir --no-tailwind --eslint --import-alias "@/*"
+
+
+get styles from this url
+https://unpkg.com/csscss@1.1.2/index.css
+
+create folder structure
+mkdir -p script/constant/json script/constant script/state/context script/state/service script/state/repository script/util/helper script/util/hook src/app/api src/app/dashboard src/dom/atom src/dom/molecule src/dom/template src/dom/organism src/model/core src/model/npc src/model/level style/module && find . -type d -empty -exec touch {}/.test \; 
+
+install dependencies
+npm i -s @react-three/drei @react-three/fiber @types/three three usehooks-ts leva postprocessing three-obj-loader @react-three/postprocessing
+
+
+# Getting Started
+
+Follow these steps to get started with your project:
+
+### Create a website
+
+Install the fundamental software and tools required to start building the project:
+
+- Install Next.js 13 (Node.js Required) and update the project structure following the recommended directory, files, and components.
+
+### Update the State
+
+Implement react hooks and local storage to add interaction and data persistence:
+
+- Use our core logic hooks and update the configuration of the game via the react hooks and helper files.
+
+### Transform to a stage/scene interface
+
+Integrate 3D on the browser (React Three Fiber) into the project and start creating objects, scenes, and stages for the game interface.
+
+# Building a Game
+
+Take your project to the next level by building a game:
+
+### Build a game loop
+
+Improve the state system with challenges and achievements.
+
+### Integrating external data
+
+Fetch an API in the server/client side DOM using Next.js 13:
+
+- Implement a simple and scalable way to use a consistent API, handle errors, generate random simulated data, and manage state throughout all layers of data.
+
+### Add user credentials
+
+Develop an authentication and authorization system to ensure that only connected users can access their private data and perform premium activities.
+
+# Online Planning
+
+Plan and optimize your online project:
+
+### Make a dashboard
+
+Develop a dashboard that displays the user's account information, history, and statistics.
+
+### Add multiplayer relationships
+
+Refine and improve the application, adding new features like a chat or making changes to existing ones to optimize the user experience.
+
+### First Version of the Game
+
+Deploy the application to a production environment, ensuring that it is secure and scalable, and monitor its performance to ensure that it meets user demands.
+
+
+<div className="pt-100">
+  <div>
+    # Download
+  </div>
+  <div>
+    <ul>
+      <li> 
+        Link 1: <a href="/">Github</a>
+      </li> 
+      <li> 
+        Link 2: <a href="/">IPFS</a>
+      </li> 
+    </ul>
+  </div>
+</div>
+<Image 
+        width={320}
+        height={320}
+        layout="fixed"
+        src={WebPOV} 
+        alt="A book" 
+        className="sb-explore-image"
+      />
+        <div>
+        <a href="/">Go Back Home</a>
+        </div>

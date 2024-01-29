@@ -1,0 +1,48 @@
+# Scaffolding
+## Standard Source Folder and Files Structure
+
+```
+webapp/
+├── public/
+│   │   ├── font/
+│   │   ├── img/
+│   │   ├── sound/
+│   │   ├── script/
+│   │   └──logo.png
+├── script/
+│   ├── constant/
+│   │   ├── json/
+│   │   └── api.ts
+│   ├── state/
+│   │   ├── context/ 
+│   │   └── service/
+│   ├── util/
+│   │   ├── helper/
+│   │   └── hook/
+├── src/
+│   ├── app/
+│   │   ├── api/
+│   │   ├── web/
+│   │   ├── globals.css
+│   │   ├── page.tsx
+│   │   ├── layout.ts
+│   │   └── middleware.ts
+│   ├── dom/
+│   │   ├── atom/ 
+│   │   ├── cell/
+│   │   ├── organ/
+│   │   └── template/
+│   └── model/
+│   │   ├── core/
+│   │   ├── npc/
+│   │   ├── part/
+│   │   ├── tools/
+│   │   └── level/
+├── style/
+│   ├── module/
+│   ├── css.css
+│   └── ...
+├── .gitignore
+├── .env.local
+└── package.json
+```

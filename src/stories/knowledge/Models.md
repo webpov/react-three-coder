@@ -1,0 +1,20 @@
+# Models
+## Pre-made object models, primitives and entities for 3d scenes
+
+
+
+# NPC
+### path: `src/model/npc/`
+The 'npc' (non-player character) folder houses 3D models and functionalities related to characters in the application that are not controlled by the user. It encompasses AI-driven characters, bystanders, or any autonomous entities within the 3D environment.
+
+# Part
+### path: `src/model/part/`
+This directory holds specific parts or components of 3D models. These parts are used to assemble more complex 3D models or to provide modular components for customization and interchangeability within the 3D environment. These components are essential but not required for the most basic of scenes.
+
+# Tools
+### path: `src/model/tools/`
+The 'tools' folder contains utilities and scripts that assist in the creation, manipulation, or interaction with 3D models. It includes tools for modeling, rigging, animating, and scripting functionalities in the 3D space. These are usable by characters, scenes, players, or the user.
+
+# Level
+### path: `src/model/level/`
+This section is dedicated to the creation and organization of different levels or environments within the 3D web app. It features various base scenes, level settings, or worlds that are integral to the flow of the 3D application or game.
