@@ -1,0 +1,505 @@
+import { Meta } from "@storybook/blocks";
+import Image from "next/image";
+
+import WebPOV from "../assets/webpov.jpg";
+import Github from "../assets/github.svg";
+import Discord from "../assets/discord.svg";
+import Youtube from "../assets/youtube.svg";
+import Tutorials from "../assets/tutorials.svg";
+import Styling from "../assets/styling.png";
+import Context from "../assets/context.png";
+import Assets from "../assets/assets.png";
+import Docs from "../assets/docs.png";
+import Share from "../assets/share.png";
+import FigmaPlugin from "../assets/figma-plugin.png";
+import Testing from "../assets/testing.png";
+import Accessibility from "../assets/accessibility.png";
+import Theming from "../assets/theming.png";
+import AddonLibrary from "../assets/addon-library.png";
+
+
+export const RightArrow = () => (
+  <svg
+    viewBox="0 0 14 14"
+    width="8px"
+    height="14px"
+    style={{
+      marginLeft: '4px',
+      display: 'inline-block',
+      shapeRendering: 'inherit',
+      verticalAlign: 'middle',
+      fill: 'currentColor',
+      'path fill': 'currentColor'
+    }}
+  >
+    <path d="m11.1 7.35-5.5 5.5a.5.5 0 0 1-.7-.7L10.04 7 4.9 1.85a.5.5 0 1 1 .7-.7l5.5 5.5c.2.2.2.5 0 .7Z" />
+  </svg>
+);
+
+
+<Meta title="Index/Full Game Guide" />
+# Full Game Guide File
+Follow these steps to make a 3d web game
+
+
+##### Step 1
+# Getting Started
+
+
+### Install Libraries and create a website.
+
+You will need to have [Node.js](https://nodejs.org) installed to run Java-Script easily.
+
+Run these commands to finish installing the required tools:
+- Part 1: To create a copy from a Next.js 13 template, run this command:
+  - ``` npx create-next-app@13.5 webgame0 --ts --app --src-dir --no-tailwind --eslint --import-alias "@/*" ```
+- Part 2: Update the project structure following the recommended directory, files, and components, run this command:
+  - ``` mkdir -p script/constant/json script/constant script/state/context script/state/service script/state/repository script/util/helper script/util/hook src/app/api src/app/dashboard src/dom/atom src/dom/molecule src/dom/template src/dom/organism src/model/core src/model/npc src/model/level style/module```
+- Part 3: *Optionaly; install all libraries needed for the project and add test files:
+  - ``` npm i -s @react-three/drei @react-three/fiber @types/three three usehooks-ts leva postprocessing three-obj-loader @react-three/postprocessing @supabase/supabase-js ```
+  - ``` find . -type d -empty -exec touch {}/.test \  ```
+After the installation is complete
+- Part 4: Run ```npm run dev``` to start the development server at [https://localhost](https://localhost)
+### Make a State Machine
+Implement react hooks and local storage to add interaction and data persistence:
+
+- Part 1: Install libraries
+  - ``` npm i -s usehooks-ts```
+- Part 2: Create react hooks for game logic
+    ```txt
+    # generate:
+    * `a local storage hook with implementation`
+    * `a basic counter react hook with several states and with local storage reusing the previous hook`    
+    ```
+- Part 3: Update UI display output
+### 3D Web Game Upgrade
+
+Integrate the state machine in 3D on the browser (React Three Fiber) into the project and start creating objects, scenes, and stages for the game interface.
+- Part 1: Install 3d web libraries
+  - ``` npm i -s @react-three/drei @react-three/fiber @types/three threeleva postprocessing three-obj-loader @react-three/postprocessing ```
+- Part 2: Create basic 3d components
+    ```txt
+    # generate:
+    * `a basic 3d component with onclick and counter of useState`    
+    * Optional* `make the component forwardRef with useImperativeHandle`    
+    ```
+- Part 3: *Optionaly: Copy css from CSSCSS CDN
+  - ``` https://unpkg.com/csscss@1.1.2/index.css  ```
+
+# Building a Game
+
+Take your website to a gamified system:
+
+### Build a game loop with an endpoint
+
+
+- Implement a simple and scalable way to use a consistent API, handle errors, generate random simulated data, and manage state throughout all layers of data.
+-  Improve the state system with challenges and achievements.
+```tsx
+const useGameState = (
+  initialState: GameState = DEFAULT_INITIAL_STATE, thresHold = 12, addFinalObj: any,):
+  [GameState, Dispatch<SetStateAction<GameState>>, (zoneId: string, field: keyof ZoneSats[string], points: number) => void, s__isStarted: any, maxScores: any, avail: any, isFinished: any] => {
+  const [avail, s__avail] = useState<any>(initialState.stats.available);
+  const [state, s__State] = useState<GameState>(initialState);
+  const [liveThresHold, s__liveThresHold] = useState<any>(0);
+  const [maxScore1, s__maxScore1] = useState<any>(0);
+  const [maxScore2, s__maxScore2] = useState<any>(0);
+  const [maxScore3, s__maxScore3] = useState<any>(0);
+  const [isStarted, s__isStarted] = useState<number>(0);
+  const [isFinished, s__isFinished] = useState<number>(0);
+  const audioCtx = useContext(AudioContext)
+  const triggerFinish = (zoneId: any, field: any) => {
+    if (isFinished) { return }
+    s__isFinished((prev: number) => prev + 1)
+    s__isStarted(0)
+    let alertmsg: any = `You lost!\n\n ${zoneId.toUpperCase()} failed, ${field} was not found!`
+    if (!!addFinalObj) {
+      addFinalObj({
+        win: false,
+        alertmsg
+      })
+    }
+  }
+  function updateStats(zoneIds: string[], field: StatType, points: number): void {
+    if (isFinished) { return; }
+    if (!isStarted) { return; }
+    const prevState = { ...state };
+    let finishTriggered = false
+
+    zoneIds.forEach(zoneId => {
+      if (!prevState.stats.zone.hasOwnProperty(zoneId)) { return; }
+      const currentStat = prevState.stats.zone[zoneId][field];
+
+      if (currentStat + points <= 0 && !finishTriggered) {
+        triggerFinish(zoneId, field);
+        finishTriggered = true
+      }
+      const updatedStat = currentStat + points >= 0 ? currentStat + points : 0;
+
+      prevState.stats.zone[zoneId] = {
+        ...prevState.stats.zone[zoneId],
+        [field]: updatedStat
+      };
+    });
+
+    s__State({
+      ...prevState,
+      stats: {
+        ...prevState.stats
+      }
+    });
+  }
+
+
+  const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    if (!isStarted) return;
+    if (!!isFinished) return;
+
+    const interval = setInterval(() => {
+      if (document.hidden) {
+        return
+      }
+      const prevCounter = counter
+      const newCounter = prevCounter + 1;
+      let oldAvail = { ...avail }
+
+      const prevState = { ...state }
+      if (newCounter % 1 === 0) {
+        if (!oldAvail["money"]) {
+          oldAvail["money"] = oldAvail["money"] + 1
+          s__avail(oldAvail)
+        }
+
+        const toChange = Object.keys(prevState.stats.zone).filter(zoneId => {
+          return prevState.stats.zone[zoneId]['money'] > 0 && Math.random() > 0.5
+        })
+        if (toChange.length) {
+          audioCtx.play("../sound/bridge.wav")
+          updateStats(toChange, 'money', -1)
+        }
+      }
+      if (newCounter % 2 === 0) {
+
+        if (!oldAvail["internet"] && Math.random() > 0.75) {
+          oldAvail["internet"] += 1
+          s__avail(oldAvail)
+        }
+        const toChange = Object.keys(prevState.stats.zone).filter(zoneId => {
+          return prevState.stats.zone[zoneId]['internet'] > 0 && Math.random() > 0.5
+        })
+        if (toChange.length) {
+          audioCtx.play("../sound/bridge.wav")
+          updateStats(toChange, 'internet', -1)
+        }
+      }
+      if (newCounter % 3 === 0) {
+
+        if (!oldAvail["law"] && Math.random() > 0.9) {
+          oldAvail["law"] += 1
+          s__avail(oldAvail)
+        }
+        const toChange = Object.keys(prevState.stats.zone).filter(zoneId => {
+          return prevState.stats.zone[zoneId]['law'] > 0 && Math.random() > 0.5
+        })
+        if (toChange.length) {
+          audioCtx.play("../sound/bridge.wav")
+          updateStats(toChange, 'law', -1)
+        }
+      }
+
+      setCounter(newCounter)
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [updateStats, isStarted, isFinished, counter]);
+
+
+
+  const increaseZoneFieldPoints = (zoneId: string, field: StatType, points: number) => {
+
+    if (!isStarted) return;
+    if (!!isFinished) return;
+    const oldAvail = { ...avail }
+    if (!oldAvail[field]) {
+      audioCtx.play("../sound/404.wav")
+
+      return
+    }
+    let maxOfMax = 0
+    switch (field) {
+      case ("money"):
+        s__maxScore1(maxScore1 + 1);
+        maxOfMax = maxScore1 + 1
+        break;
+      case ("internet"):
+        s__maxScore2(maxScore2 + 1);
+        maxOfMax = maxScore2 + 1
+        break;
+      case ("law"):
+        s__maxScore3(maxScore3 + 1);
+        maxOfMax = maxScore3 + 1
+        break;
+    }
+    audioCtx.play(STATS_SFX_MAIN[field])
+
+    oldAvail[field] -= 1
+    s__avail(oldAvail)
+    const updatedZoneSats = {
+      ...state.stats.zone[zoneId],
+      [field]: (state.stats.zone[zoneId]?.[field] ?? 0) + points
+    };
+    s__liveThresHold((state.stats.zone[zoneId]?.[field] ?? 0) + points);
+    
+    if (maxOfMax >= thresHold) {
+      let msg = (`You've won!\n\n ${zoneId.toUpperCase()} overdelivered, ${field} was very productive!`)
+      const lvlBaseURL = process.env.NODE_ENV == "production" ? "https://mileidi.vercel.app" : "http://localhost:1234"
+      let nextLevel = 0
+      let window_location_href = ""
+      triggerFinish(zoneId, field);
+      if (thresHold < 25 && !!window?.location) {
+        window_location_href = `${lvlBaseURL}/lvl/1`
+      }
+      if (thresHold < 50 && !!window?.location) {
+        window_location_href = `${lvlBaseURL}/lvl/2`
+      }
+      if (thresHold < 75 && !!window?.location) {
+        window_location_href = `${lvlBaseURL}/lvl/3`
+      }
+      if (!nextLevel) {
+        if (!!addFinalObj) {
+          addFinalObj({
+            win: true,
+            points: 1,
+            msg,
+            window_location_href
+          })
+        }
+        else { return window?.location.reload() }
+      }
+
+    }
+    const updatedState = {
+      ...state,
+      stats: {
+        ...state.stats,
+        zone: {
+          ...state.stats.zone,
+          [zoneId]: updatedZoneSats
+        }
+      }
+    };
+
+    s__State(updatedState);
+  };
+
+  return [state, s__State, increaseZoneFieldPoints, s__isStarted, {
+    maxScore1,
+    maxScore2,
+    maxScore3
+  }, avail, isFinished];
+};
+
+export default useGameState;
+```
+
+### Authentication logs with Database
+
+Develop an authentication and authorization system to ensure that only connected users can access their private data and perform premium activities.
+- Use supabase
+  - ``` npm i -s @supabase/supabase-js```
+
+### Game Dashboard
+Develop a dashboard that displays the user's account information, history, and statistics.
+- Add 2.5D Interface for game management and settings.
+  - Settings
+  - Win & Lose
+  - HUD
+  - SFX
+
+
+# Online Planning
+
+Plan and optimize your online project:
+
+### Deployment
+Deploy the application to a production environment, ensuring that it is secure and scalable, and monitor its performance to ensure that it meets user demands.
+
+### Responsive
+Refine and improve the application, adding new features like a chat or making changes to existing ones to optimize the user experience.
+
+
+### First Version of the Game
+Refactor
+
+
+
+# Decentralization
+
+### First Steps: Token Deploy
+## Solana
+
+#### Token22 Version 1 (Without Extensions)
+```
+solana-keygen grind --starts-with miL3:1
+spl-token create-token --program-id TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb .\keys\miL2tTuTfd9nGKDSDcBXsEi1HMu2ANyiMasSnph44tn.json
+ts-node .\mpl_token22.ts                                         
+spl-token create-account miL2tTuTfd9nGKDSDcBXsEi1HMu2ANyiMasSnph44tn
+spl-token mint miL2tTuTfd9nGKDSDcBXsEi1HMu2ANyiMasSnph44tn 21000
+spl-token authorize miL2tTuTfd9nGKDSDcBXsEi1HMu2ANyiMasSnph44tn mint --disable
+spl-token authorize miL2tTuTfd9nGKDSDcBXsEi1HMu2ANyiMasSnph44tn freeze --disable
+```
+mpl_token22.ts 
+```
+import { createV1, updateV1 ,Collection, CreateMetadataAccountV3InstructionAccounts, CreateMetadataAccountV3InstructionDataArgs, Creator, MPL_TOKEN_METADATA_PROGRAM_ID, UpdateMetadataAccountV2InstructionAccounts, UpdateMetadataAccountV2InstructionData, Uses, createMetadataAccountV3, updateMetadataAccountV2, findMetadataPda, CreateV1InstructionAccounts, CreateV1InstructionData, TokenStandard, CollectionDetails, PrintSupply, UpdateV1InstructionData, UpdateV1InstructionAccounts, Data} from "@metaplex-foundation/mpl-token-metadata";
+import * as web3 from "@solana/web3.js";
+import { PublicKey, createSignerFromKeypair, none, percentAmount, publicKey, signerIdentity, some } from "@metaplex-foundation/umi";
+import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
+import { fromWeb3JsKeypair, fromWeb3JsPublicKey} from '@metaplex-foundation/umi-web3js-adapters';
+import * as bs58 from "bs58";
+
+const SPL_TOKEN_2022_PROGRAM_ID: PublicKey = publicKey(
+    'TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb'
+  );
+
+  
+export function loadWalletKey(keypairFile:string): web3.Keypair {
+    const fs = require("fs");
+    const loaded = web3.Keypair.fromSecretKey(
+      new Uint8Array(JSON.parse(fs.readFileSync(keypairFile).toString())),
+    );
+    return loaded;
+  }
+
+const INITIALIZE = true;
+
+async function main(){
+    console.log("let's name some token-22 tokens in 2024!");
+    const myKeypair = loadWalletKey("miLncvVo2bQpFK8G4dAGpFYfHDGaqWUzYfFAVWXgQM5.json");
+    let tokenAddres = "miL2tTuTfd9nGKDSDcBXsEi1HMu2ANyiMasSnph44tn"
+    const mint = new web3.PublicKey(tokenAddres);
+    console.log("myKeypair", myKeypair.publicKey.toString())
+    console.log("m token", tokenAddres)
+    // return
+    // const umi = createUmi("https://api.mainnet-beta.solana.com");
+    const umi = createUmi("https://solana-mainnet.g.alchemy.com/v2/KyPv5ltJS3W9NXyKAUwG9OFSxf5HEI4r");
+    const signer = createSignerFromKeypair(umi, fromWeb3JsKeypair(myKeypair))
+    umi.use(signerIdentity(signer, true))
+
+    const ourMetadata = {
+        "name": "Milei Di Chan",
+        "symbol": "MILEI",
+        "uri": "https://mileidi.vercel.app/token22/milei_metadata.json"
+      }
+      
+    console.log("asdasd", ourMetadata)
+    // return
+    if(INITIALIZE){
+        const onChainData = {
+            ...ourMetadata,
+            // we don't need that
+            sellerFeeBasisPoints: percentAmount(0,2),
+            creators: none<Creator[]>(),
+            collection: none<Collection>(),
+            uses: none<Uses>(),
+        }
+        const accounts: CreateV1InstructionAccounts = {
+            mint: fromWeb3JsPublicKey(mint),
+            splTokenProgram: SPL_TOKEN_2022_PROGRAM_ID
+        }
+        const data: CreateV1InstructionData = {
+            ...onChainData,
+            isMutable: true,
+            discriminator: 0,
+            tokenStandard: TokenStandard.Fungible,
+            collectionDetails: none<CollectionDetails>(),
+            ruleSet: none<PublicKey>(),
+            createV1Discriminator: 0,
+            primarySaleHappened: true,
+            decimals: none<number>(),
+            printSupply: none<PrintSupply>(),
+        }
+        const txid = await createV1(umi, {...accounts, ...data}).sendAndConfirm(umi);
+        console.log(bs58.encode(txid.signature))
+    } else {
+        const onChainData = {
+            ...ourMetadata,
+            sellerFeeBasisPoints: 0,
+            creators: none<Creator[]>(),
+            collection: none<Collection>(),
+            uses: none<Uses>(),
+        }
+        const accounts: UpdateV1InstructionAccounts = {
+            mint: fromWeb3JsPublicKey(mint),
+        }
+        const data = {
+            discriminator: 0,
+            data: some<Data>(onChainData),
+            updateV1Discriminator: 0,
+        }
+        const txid = await updateV1(umi, {...accounts, ...data}).sendAndConfirm(umi);
+        console.log(bs58.encode(txid.signature))
+    }
+
+
+}
+
+main();
+```
+
+
+#### Token22 Version 2 (With Extensions)
+```
+spl-token create-token --enable-metadata --program-id TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
+spl-token create-account tokenaddress
+spl-token initialize-metadata 8AG4ZFCu8V3C2zkmyLtSorgGT6odFbKLFWnqykTiijZ6 CorpusHermeticum HERMES https://duno.vercel.app
+spl-token mint 8AG4ZFCu8V3C2zkmyLtSorgGT6odFbKLFWnqykTiijZ6 1123581321
+spl-token authorize tokenaddress mint --disable
+spl-token authorize 8AG4ZFCu8V3C2zkmyLtSorgGT6odFbKLFWnqykTiijZ6 freeze --disable
+```
+#### Solana Client Integration
+```
+spl-token create-token --enable-metadata --program-id TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
+spl-token create-account tokenaddress
+spl-token initialize-metadata 8AG4ZFCu8V3C2zkmyLtSorgGT6odFbKLFWnqykTiijZ6 CorpusHermeticum HERMES https://duno.vercel.app
+spl-token mint 8AG4ZFCu8V3C2zkmyLtSorgGT6odFbKLFWnqykTiijZ6 1123581321
+spl-token authorize tokenaddress mint --disable
+spl-token authorize 8AG4ZFCu8V3C2zkmyLtSorgGT6odFbKLFWnqykTiijZ6 freeze --disable
+```
+
+## Polygon
+#### Polygon Client Integration
+
+
+## Cosmos
+#### Cosmos Client Integration
+
+
+
+<div className="pt-100">
+  <div>
+    # Download
+  </div>
+  <div>
+    <ul>
+      <li> 
+        Link 1: <a href="/">Github</a>
+      </li> 
+      <li> 
+        Link 2: <a href="/">IPFS</a>
+      </li> 
+    </ul>
+  </div>
+</div>
+<Image 
+        width={320}
+        height={320}
+        layout="fixed"
+        src={WebPOV} 
+        alt="A book" 
+        className="sb-explore-image"
+      />
+        <div>
+        <a href="/">Go Back Home</a>
+        </div>
