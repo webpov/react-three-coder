@@ -1,0 +1,124 @@
+import { Meta } from "@storybook/blocks";
+import Image from "next/image";
+
+import WebPOV from "../assets/webpov.jpg";
+import Github from "../assets/github.svg";
+import Discord from "../assets/discord.svg";
+import Youtube from "../assets/youtube.svg";
+import Tutorials from "../assets/tutorials.svg";
+import Styling from "../assets/styling.png";
+import Context from "../assets/context.png";
+import Assets from "../assets/assets.png";
+import Docs from "../assets/docs.png";
+import Share from "../assets/share.png";
+import FigmaPlugin from "../assets/figma-plugin.png";
+import Testing from "../assets/testing.png";
+import Accessibility from "../assets/accessibility.png";
+import Theming from "../assets/theming.png";
+import AddonLibrary from "../assets/addon-library.png";
+
+
+export const RightArrow = () => (
+  <svg
+    viewBox="0 0 14 14"
+    width="8px"
+    height="14px"
+    style={{
+      marginLeft: '4px',
+      display: 'inline-block',
+      shapeRendering: 'inherit',
+      verticalAlign: 'middle',
+      fill: 'currentColor',
+      'path fill': 'currentColor'
+    }}
+  >
+    <path d="m11.1 7.35-5.5 5.5a.5.5 0 0 1-.7-.7L10.04 7 4.9 1.85a.5.5 0 1 1 .7-.7l5.5 5.5c.2.2.2.5 0 .7Z" />
+  </svg>
+);
+
+
+<Meta title="Index/50 Second Tutorial" />
+# 50 Second Tutorial
+<br />
+
+### English
+```
+How to make a 3d game with;, Node.js;
+
+
+First, run these 4 commands,
+- download a template, with, ``` npx, create next app```.
+- enter the folder, with, ``` cd, my game zero```.
+- download, these tools, with, ``` npm, install;```.
+- Finally, start your app, with,  ```npm, run dev```; and open your browser.
+
+Second. 
+- In the source folder, lets create a new file called, game container, with this code;  
+- then; import it in the main page, inside the app folder.
+
+Third.
+- Now open the game container, and add, a 3d box, inside a canvas, like this. 
+- check your progress;
+- Then, add these 4 things
+  - a cylinder, to make a coin,
+  - a variable, to count points,
+  - a function, to listen to clicks
+  - and lastly, show, the score, like this.
+- Finally, play your game, in your browser, or mobile phone.
+```
+
+### Spanish
+```
+Como hacer un juego 3D con Node.js.
+
+
+Primero, ejecuta estos 4 comandos:
+- descarga una plantilla, con, ```npx, create next app```.
+- entra a la carpeta, con, ```cd, my game zero```.
+- descarga estas herramientas, con, ```npm, install```.
+- Finalmente, corre tu app, con: ```npm, run dev```, y abre tu navegador.
+
+Segundo.
+En la carpeta src, creemos un nuevo archivo llamado, game container.  con este código;
+e importalo en el archivo, page, en la carpeta app.
+
+
+Tercero.
+Abre game container, y agrega, un cubo 3D. dentro de un canvas, de esta manera. 
+Ahora añade más código, para estas 4 cosas.
+- un cilindro, como moneda
+- una variable, para los puntos
+- una funcion, para los clicks,
+- y por ultimo, muestra el puntaje, asi.
+Finalmente, juega tu proyecto, en tu explorador, o telefono.
+```
+
+
+
+
+<div className="pt-100">
+  <div>
+    # Download
+  </div>
+  <div>
+    <ul>
+      <li> 
+        Link 1: <a href="/">Github</a>
+      </li> 
+      <li> 
+        Link 2: <a href="/">IPFS</a>
+      </li> 
+    </ul>
+  </div>
+</div>
+<Image 
+        width={320}
+        height={320}
+        layout="fixed"
+        src={WebPOV} 
+        alt="A book" 
+        className="sb-explore-image"
+      />
+        <div>
+        <a href="/">Go Back Home</a>
+        </div>

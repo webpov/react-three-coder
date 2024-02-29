@@ -35,10 +35,10 @@ export const RightArrow = () => (
   </svg>
 );
 
-<Meta title="React Three Game Guide" />
+<Meta title="React-Three Coder" />
 
-# React Three Game Guide (R3GG)
-#### Collection of resources to make your own 3D Web-Based projects using react, three, fiber & drei and custom gpts
+# React-Three Coder
+#### A guide on how to make a CustomGPT for your own 3D Web-Based Projects using react-three fiber & drei
 ---
 
       <Image 
@@ -58,28 +58,19 @@ export const RightArrow = () => (
     <ul>
       <li> 
         WebPOV Code (CustomGPT):
-        <a href="https://chat.openai.com/g/g-H2oa0rSsM-r3gg-react-three-game-guide-webpov">chat.openai.com/g/g-H2oa0rSsM-r3gg-react-three-game-guide-webpov</a>
-      </li> 
-      <hr />
-      <li> 
-        Game Example (MileiSol): <a href="https://mileisol.com/">mileisol.com</a>
+        <a href="https://chat.openai.com/g/g-H2oa0rSsM-webpov-code">openai.com/g/g-H2oa0rSsM-webpov-code</a>
       </li> 
       <li> 
-        Game Example 2 (WebCity): <a href="https://wcity.vercel.app/">wcity.vercel.app</a>
-      </li> 
-      <hr />
-      <li> 
-        Full Single-File Game Guide: <a href="/?path=/docs/index-full-guide--docs">Full_Web_Game_Guide.md</a>
+        Game Example (WebCity): <a href="https://wcity.vercel.app/">wcity.vercel.app</a>
       </li> 
       <li> 
-        50 Second Tutorial: <a href="/?path=/docs/index-full-guide--docs">Game_In_50_Seconds.md</a>
+        Full Single-File Guide: <a href="/?path=/docs/index-full-guide--docs">Web_Game_Guide.pdf</a>
       </li> 
-      <hr />
       <li> 
         ### Contact:
         * X (formerly Twitter): <a href="https://x.com/webpov">@WebPOV</a>
+        * Personal X (formerly Twitter): <a href="https://x.com/3duno3">@3duno3</a>
         * More Links: <a href="https://webpov.gitbook.io/pov/about/contact">webpov.gitbook.io</a>
-        * X (formerly Twitter): <a href="https://x.com/3duno3">@3duno3</a>
       </li> 
     </ul>
   </div>
@@ -87,7 +78,7 @@ export const RightArrow = () => (
 
 
 
-## 3D Game Guide Index
+## Index
 <div>
   <div>
     # Create
@@ -150,7 +141,7 @@ export const RightArrow = () => (
       <a
         href="https://github.com/webpov"
         target="_blank"
-      >Follow on<br/>GitHub<RightArrow /></a>
+      >Star on<br/>GitHub<RightArrow /></a>
     </div>
     <div className="flex-col">
       <Image 
