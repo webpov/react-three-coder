@@ -1,23 +1,25 @@
-how to make a 3d game with; Node.js;
+how to make a 3d game with;, Node.js;
 
 
-
-First, run these 5 commands,
-- #1;  download a template, with, ``` npx, create next app```.
-- #2; enter the folder, with, ``` cd, my game zero```.
-- #3;  create more folders, with, ``` make, dir;```. and,
-- #4;  download, these tools, with, ``` npm, install;```.
-- Finally: ```npm, run dev```; and open your browser.
+First, run these 4 commands,
+- download a template, with, ``` npx, create next app```.
+- enter the folder, with, ``` cd, my game zero```.
+- download, these tools, with, ``` npm, install;```.
+- Finally, start your app, with,  ```npm, run dev```; and open your browser.
 
 Second. 
-- Lets create a new file, for the main top menu, at source, slash dom, write a new component, with this code;  
-- and then;
-- import it in the  main page, inside the app folder,
+- In the source folder, lets create a new file called, game container, with this code;  
+- then; import it in the main page, inside the app folder.
 
 Third.
-- Create another component, but, in the, model, folder, and add, a 3d, box. like this. and also import it in the page.
-- Great; write more code, in your game component, to listen to clicks, add a coin, and show, the score.
-- Finally, play your game, in your browser or phone.
+- Now open the game container, and add, a 3d box, inside a canvas, like this. 
+- check your progress;
+- Then, add these 4 things
+  - a cylinder, to make a coin,
+  - a variable, to count points,
+  - a function, to listen to clicks
+  - and lastly, show, the score, like this.
+- Finally, play your game, in your browser, or mobile phone.
 
 
 
