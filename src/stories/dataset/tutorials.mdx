@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/blocks";
 
 
-<Meta title="Knowledge/Files/Tutorials" />
+<Meta title="GPT/Dataset/Tutorials" />
 ##### Section: Tutorials
 # v8 Migration Guide
 ---

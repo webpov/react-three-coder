@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/blocks";
 
 
-<Meta title="Knowledge/Files/Getting Started" />
+<Meta title="GPT/Dataset/Getting Started" />
 ##### Section: Getting Started
 # Introduction
 ---

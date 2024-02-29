@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/blocks";
 
 
-<Meta title="Knowledge/Files/Advanced" />
+<Meta title="GPT/Dataset/Advanced" />
 ##### Section: Advanced
 # Scaling performance
 ---

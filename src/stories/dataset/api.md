@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/blocks";
 
 
-<Meta title="Knowledge/Files/API" />
+<Meta title="GPT/Dataset/API" />
 ##### Section: API
 # Canvas
 ---
