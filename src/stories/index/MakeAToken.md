@@ -4,7 +4,7 @@ First, Download the Solana, CLI tools, with these 2 commands
 Then, run these other 2 commands, first
 generate a wallet, with, solana-keygen new. and send some solana tokens to the new address.
 create the coin, with,  "S. Pee L." token create-token; and, program id.
-
+save, your new token address.
 Now download this tool, and.
 install the dependencies, with  npm install.
 open the folder, and.
@@ -18,7 +18,7 @@ lastly run the code,  with, t s node token22.
 now, make an account for the coin supply, with,  "S. Pee L." token create account.
 Finally, create some tokens, with  "S. Pee L." token mint .
 
-You've now created a crypto currency, send it trade it or set up a market, check our channel for more tutorials
+You've now created a crypto currency, send it trade it or set up a market, check our channel for more tutorials at web pee o vee
 
 
 
@@ -67,7 +67,7 @@ https://docs.solanalabs.com/cli/install
 
 solana-keygen grind --starts-with miL3:1
 spl-token create-token --program-id TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb .\keys\miL2tTuTfd9nGKDSDcBXsEi1HMu2ANyiMasSnph44tn.json
-
+https://github.com/webpov/solana_token_metadata
 https:// repo mpl_token22
 ts-node .\mpl_token22.ts                                         
 spl-token create-account miL2tTuTfd9nGKDSDcBXsEi1HMu2ANyiMasSnph44tn
